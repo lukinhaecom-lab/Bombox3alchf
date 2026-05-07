@@ -640,7 +640,7 @@
   };
   function openCart(){document.getElementById('cartOverlay').classList.add('open');document.getElementById('cartModal').classList.add('open');document.body.style.overflow='hidden';renderCart();}
   function closeCart(){document.getElementById('cartOverlay').classList.remove('open');document.getElementById('cartModal').classList.remove('open');document.body.style.overflow='';}
-  function addToCart(){var ex=cart.find(function(i){return i.name===PROD.name;});if(ex){ex.qty++;}else{cart.push(Object.assign({},PROD,{qty:1}));}syncBadge();openCart();}
+  function addToCart(){ window.location.href='https://www.aurenpro.online/checkouts/cn/hWNBtm29b61A2h2Y5KwMeN5H/'; }
   function removeItem(name){cart=cart.filter(function(i){return i.name!==name;});syncBadge();renderCart();}
   function changeQty(name,d){var it=cart.find(function(i){return i.name===name;});if(!it)return;it.qty+=d;if(it.qty<=0){removeItem(name);return;}syncBadge();renderCart();}
   function syncBadge(){var t=cart.reduce(function(s,i){return s+i.qty;},0);document.querySelectorAll('.cart-badge,#cartCountBadge').forEach(function(el){el.textContent=t;});}
@@ -676,11 +676,11 @@
       +'<div class="c-row savings"><span>\uD83C\uDF89 Sie sparen</span><span>-'+(orig-sub)+' '+cur+'</span></div>'
       +'<div class="c-row"><span>Versand</span><span style="color:#22c55e;font-weight:700">Kostenlos</span></div>'
       +'<div class="c-row total"><span>Gesamt</span><span class="total-price">'+sub+' '+cur+'</span></div>'
-      +'<button class="btn-checkout">JETZT BESTELLEN &rarr;</button>'
+      +'<button class="btn-checkout" onclick="window.location.href=&quot;https://www.aurenpro.online/checkouts/cn/hWNBtm29b61A2h2Y5KwMeN5H/&quot;">JETZT BESTELLEN &rarr;</button>'
       +'<div class="cart-secure"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg> Sicher &amp; verschl\u00fcsselt bezahlen</div>';
   }
-  document.querySelectorAll('.btn-buy').forEach(function(btn){btn.addEventListener('click',addToCart);});
-  document.querySelector('.cart-wrap').addEventListener('click',function(){if(cart.length)openCart();});
+  document.querySelectorAll('.btn-buy').forEach(function(btn){btn.addEventListener('click',function(){ window.location.href='https://www.aurenpro.online/checkouts/cn/hWNBtm29b61A2h2Y5KwMeN5H/'; });});
+  document.querySelector('.cart-wrap').addEventListener('click',function(){ if(cart.length) window.location.href='https://www.aurenpro.online/checkouts/cn/hWNBtm29b61A2h2Y5KwMeN5H/'; });
 
 </script>
 
