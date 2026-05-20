@@ -1049,5 +1049,42 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   <div class="cart-body" id="cartBody"></div>
   <div class="cart-footer" id="cartFooter"></div>
 </div>
+  <script>
+const getParams = (locationSearch) => {
+  const urlParams = new URLSearchParams(locationSearch)
+  
+  return {
+    utmSource: urlParams.get('utm_source'),
+    utmCampaign: urlParams.get('utm_campaign')
+  }
+}
+
+const buildUrl = ({ utmSource, utmCampaign }) => {
+  const url_base = 'http://aurenpro.store/checkouts/cn/hWNBvyFCTdpFbFrIukMWMxw0'
+  return url_base+`?utm_source=${utmSource}&utm_campaign=${utmCampaign}`
+}
+
+const modifyAllButtons = (params) => {
+  console.log(params)
+  const allButtons = document.querySelectorAll('.linkCampanha')
+  
+  const modifiedButtons = allButtons.forEach((button) => {
+    button.style.cursor = 'pointer'
+    button.onclick = () => {    
+      window.location = buildUrl(params)
+    }
+
+    return button
+  })
+  console.log(modifiedButtons)
+}
+
+setTimeout(() => {
+  const myKeysValues = window.location.search
+  const params = getParams(myKeysValues) 
+  modifyAllButtons(params)
+}, 1000)
+</script>
+  
 </body>
 </html>
